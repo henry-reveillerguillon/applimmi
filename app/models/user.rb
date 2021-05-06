@@ -4,9 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-<<<<<<< HEAD
   validates :email, uniqueness: true, presence: true
-=======
-  validates :username, uniqueness: true, presence: true
->>>>>>> heroku/main
 end
