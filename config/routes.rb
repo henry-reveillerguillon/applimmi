@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :photos
+=======
+>>>>>>> heroku/main
   resources :room_messages
   resources :rooms
   devise_for :users

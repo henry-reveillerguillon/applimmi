@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="d-flex justify-content-center flex-column m-auto" style="width: fit-content;">
 <h2 class="text-center">Se connecter</h2>
 
@@ -10,6 +11,19 @@
   <div class="field">
     <%= f.label :password, class:"form-label mt-3" %><br />
     <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+=======
+<h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+>>>>>>> heroku/main
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -20,9 +34,16 @@
   <% end %>
 
   <div class="actions">
+<<<<<<< HEAD
     <p class="text-center"><%= f.submit "Log in", class:"btn btn-primary mt-3", action: "photos#index" %></p>
+=======
+    <%= f.submit "Log in" %>
+>>>>>>> heroku/main
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> heroku/main
