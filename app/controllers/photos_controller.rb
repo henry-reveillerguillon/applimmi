@@ -25,7 +25,6 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
     @photo.user = current_user
-    byebug
 
 
     respond_to do |format|
