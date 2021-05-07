@@ -1,55 +1,39 @@
 <h2>Mon compte</h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
   <div class="form-floating">
-   <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
     <%= f.label :email %><br />
   </div>
-
   <div class="field">
     <%= f.label :username, class:"form-label mt-3" %><br />
     <%= f.email_field :username, class:"form-control" %>
   </div>
-
-
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
   <% end %>
-
   <div class="form-floating">
-    
     <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.label :password %> <i>(laissez le champ vide si vous ne voulez pas le modifier)</i><br />
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> caractères minimum</em>
     <% end %>
   </div>
-
   <div class="form-floating">
-    
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
     <%= f.label :password_confirmation %><br />
   </div>
-
   <div class="form-floating">
-    
     <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
     <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i><br />
   </div>
-
   <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3"><%= f.submit "Update" %></button>
+    <%= f.submit "Update", class:"btn btn-primary mb-3" %>
   </div>
 <% end %>
-
 <h3>Supprimer mon compte</h3>
-
-<p>Supprimer mon compte <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-
+<%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Vous êtes sûr ?" }, method: :delete, class:"btn btn-primary mb-3" %>
 <div class="col-auto">
-    <button type="submit" class="btn btn-primary mb-3"><%= link_to "Back", :back %></button>
-  </div>
+  <%= link_to "Retour", :back, class:"btn btn-primary mb-3" %>
+</div>
