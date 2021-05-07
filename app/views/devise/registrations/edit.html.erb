@@ -15,7 +15,7 @@
 
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>En attente de confirmation pour : <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="form-floating">
@@ -24,7 +24,7 @@
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em><%= @minimum_password_length %> caractères minimum</em>
     <% end %>
   </div>
 
@@ -37,7 +37,7 @@
   <div class="form-floating">
     
     <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %> <i>(nous avons besoin de votre mot de passe actuel pour confirmer vos changements)</i><br />
   </div>
 
   <div class="col-auto">
