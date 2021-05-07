@@ -2,7 +2,6 @@
   <% if photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
-
       <ul>
         <% photo.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,62 +9,49 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :url %>
+  <div class="form-floating">
+    <%= form.label :url, class: "form-control" %>
     <%= form.text_area :url %>
+  </div>
   </div>
 
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
-
   <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description %>
   </div>
-
   <div class="field">
     <%= form.label :place %>
     <%= form.text_field :place %>
   </div>
-
   <div class="field">
     <%= form.label :situation %>
     <%= form.text_field :situation %>
   </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
   <div class="field">
     <%= form.label :tags %>
-    <%= form.text_field :tags %>
+    <%= form.select :tags, options_for_select(Tag.pluck(:name)) %>
   </div>
-
   <div class="field">
     <%= form.label :camera %>
     <%= form.text_field :camera %>
   </div>
-
   <div class="field">
     <%= form.label :aperture %>
     <%= form.text_field :aperture %>
   </div>
-
   <div class="field">
     <%= form.label :focal %>
     <%= form.text_field :focal %>
   </div>
-
   <div class="field">
     <%= form.label :darkeningspeed %>
     <%= form.text_field :darkeningspeed %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

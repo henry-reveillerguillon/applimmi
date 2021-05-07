@@ -13,15 +13,18 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
+    @tags = Tag.all
   end
 
   # GET /photos/1/edit
   def edit
+  tags = Tag.all
   end
 
   # POST /photos or /photos.json
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = curent_user
 
     respond_to do |format|
       if @photo.save
