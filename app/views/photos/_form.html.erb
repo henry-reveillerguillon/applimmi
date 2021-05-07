@@ -9,49 +9,56 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
   <div class="form-floating">
-    <%= form.label :url, class: "form-control" %>
-    <%= form.text_area :url %>
+    <%= form.text_area :url, class: "form-control" %>
+    <%= form.label :url %>
   </div>
-  </div>
-
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :title, class: "form-control" %>
     <%= form.label :title %>
-    <%= form.text_field :title %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_area :description, class: "form-control" %>
     <%= form.label :description %>
-    <%= form.text_area :description %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :place, class: "form-control" %>
     <%= form.label :place %>
-    <%= form.text_field :place %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :situation, class: "form-control" %>
     <%= form.label :situation %>
-    <%= form.text_field :situation %>
   </div>
-  <div class="field">
+  <br>
+  <div class="">
+    <%= form.collection_check_boxes :tag_ids, Tag.order(:name), :id, :name, class: "form-control"%>
     <%= form.label :tags %>
-    <%= form.select :tags, options_for_select(Tag.pluck(:name)) %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :camera, class: "form-control" %>
     <%= form.label :camera %>
-    <%= form.text_field :camera %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :aperture, class: "form-control" %>
     <%= form.label :aperture %>
-    <%= form.text_field :aperture %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :focal, class: "form-control" %>
     <%= form.label :focal %>
-    <%= form.text_field :focal %>
   </div>
-  <div class="field">
+  <br>
+  <div class="form-floating">
+    <%= form.text_field :darkeningspeed, class: "form-control" %>
     <%= form.label :darkeningspeed %>
-    <%= form.text_field :darkeningspeed %>
   </div>
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

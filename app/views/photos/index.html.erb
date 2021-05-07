@@ -1,77 +1,42 @@
-<section class="py-5 text-center container">
-  <div class="row py-lg-5">
+<h1>Salut <%= current_user.username %></h1>
+<section class="py-5 text-center container-fluid">
+  <div class="row py-lg-5 backimg">
     <div class="col-lg-6 col-md-8 mx-auto">
-      <h1 class="fw-light">Photos</h1>
-      <p class="lead text-muted">Partages tes photos en cliquant sur ...</p>
+      <h1 class="fw-light" style="color:white;">Photos</h1>
+      <p class="lead text-muted" style="color:white;">Partages tes photos en cliquant sur ...</p>
     </div>
     <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3"><%= link_to 'New Photo', new_photo_path %></button>
   </div>
 </section>
-<table>
-  <thead>
-    <tr>
-      <th>Url</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Place</th>
-      <th>Situation</th>
-      <th>Tags</th>
-      <th>Camera</th>
-      <th>Aperture</th>
-      <th>Focal</th>
-      <th>Darkeningspeed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-  
-    <% @photos.each do |photo| %>
-      <tr>
-        <td><img src="<%= photo.url %>"></td>
-        <td><%= photo.title %></td>
-        <td><%= photo.description %></td>
-        <td><%= photo.place %></td>
-        <td><%= photo.situation %></td>
-        <td><%= photo.user %></td>
-        <td><%= photo.tags %></td>
-        <td><%= photo.camera %></td>
-        <td><%= photo.aperture %></td>
-        <td><%= photo.focal %></td>
-        <td><%= photo.darkeningspeed %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-
-
-        <div class="card-deck">
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
-              <div class="card shadow-sm">
-               <p class="card-text"><%= photo.user %></p>
-                <img src="<%= photo.url %>">
-                <div class="card-body">
-                  <p class="card-text"><%= photo.title %></p>
-                  <p class="card-text"><%= photo.description %></p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'View', photo %></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_photo_path(photo) %></button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-                    </div>
-                    <small class="text-muted"><%= photo.place %></small>
-                  </div>
-                </div>
+<div class="d-flex">
+  <% @photos.each do |photo| %>
+    <div class="card-deck" style="height:auto; width:30vw">
+      <div class="col">
+        <div class="card shadow-sm">
+          <p class="card-text"><%= photo.user.username %></p>
+          <img src="<%= photo.url %>">
+          <div class="card-body">
+            <p class="card-text"><%= photo.title %></p>
+            <p class="card-text"><%= photo.description %></p>
+            <p class="card-text"><%= photo.camera %></p>
+            <p class="card-text"><%= photo.aperture %></p>
+            <p class="card-text"><%= photo.focal %></p>
+            <p class="card-text"><%= photo.darkeningspeed %></p>
+            <p class="card-text"><%= photo.tags %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'View', photo %></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_photo_path(photo) %></button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></button>
               </div>
+              <small class="text-muted"><%= photo.place %></small>
+              <small class="text-muted"><%= photo.situation %></small>
             </div>
           </div>
         </div>
-
-
-
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  <% end %>
+</div>
 <br>
 <%= link_to 'New Photo', new_photo_path %>

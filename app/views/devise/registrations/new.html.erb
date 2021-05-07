@@ -9,6 +9,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
+  <div class="field">
+    <%= f.label :username, class:"form-label mt-3" %><br />
+    <%= f.username_field :username, class:"form-control" %>
+  </div>
+
 <div class="field">
     <%= f.label :password, class:"form-label mt-3" %>
     <% if @minimum_password_length %>
