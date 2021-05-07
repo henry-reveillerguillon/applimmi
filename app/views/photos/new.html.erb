@@ -1,7 +1,7 @@
-<div style="width:50vw; margin-right: auto; margin-left: auto;">
-<h1>Nouvelle publication</h1>
-
-<%= render 'form', photo: @photo %>
-
-<%= link_to 'Back', photos_path %>
+<div style="width:50vw; margin-right: auto; margin-left: auto; margin-top:2em;">
+  <h1>Nouvelle publication</h1>
+  <div class="text-center">
+    <%= render 'form', photo: @photo, class:"btn btn-sm btn-outline-secondary" %>
+    <%= link_to 'Back', photos_path, class:"btn btn-sm btn-outline-secondary" %>
+  </div>
 </div>
