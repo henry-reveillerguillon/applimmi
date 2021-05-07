@@ -1,65 +1,67 @@
-<%= form_with(model: photo) do |form| %>
-  <% if photo.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
-      <ul>
-        <% photo.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<div style="width:50vw; margin-right: auto; margin-left: auto;">
+  <%= form_with(model: photo) do |form| %>
+    <% if photo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+        <ul>
+          <% photo.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="form-floating">
+      <%= form.text_area :url, :required => true, class: "form-control"  %>
+      <%= form.label :url %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :title, :required => true, class: "form-control" %>
+      <%= form.label :title %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_area :description, class: "form-control" %>
+      <%= form.label :description %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :place, :required => true, class: "form-control" %>
+      <%= form.label :place %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :situation, class: "form-control" %>
+      <%= form.label :situation %>
+    </div>
+    <br>
+    <div class="form-group">
+      <%= form.label :tags, class: "form-control" %>
+        <%= form.collection_check_boxes :tag_ids, Tag.order(:name), :id, :name %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :camera, :required => true, class: "form-control" %>
+      <%= form.label :camera %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :aperture, class: "form-control" %>
+      <%= form.label :aperture %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :focal, class: "form-control" %>
+      <%= form.label :focal %>
+    </div>
+    <br>
+    <div class="form-floating">
+      <%= form.text_field :darkeningspeed, class: "form-control" %>
+      <%= form.label :darkeningspeed %>
+    </div>
+    <br>
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-  <div class="form-floating">
-    <%= form.text_area :url, class: "form-control" %>
-    <%= form.label :url %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :title, class: "form-control" %>
-    <%= form.label :title %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_area :description, class: "form-control" %>
-    <%= form.label :description %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :place, class: "form-control" %>
-    <%= form.label :place %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :situation, class: "form-control" %>
-    <%= form.label :situation %>
-  </div>
-  <br>
-  <div class="">
-    <%= form.collection_check_boxes :tag_ids, Tag.order(:name), :id, :name, class: "form-control"%>
-    <%= form.label :tags %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :camera, class: "form-control" %>
-    <%= form.label :camera %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :aperture, class: "form-control" %>
-    <%= form.label :aperture %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :focal, class: "form-control" %>
-    <%= form.label :focal %>
-  </div>
-  <br>
-  <div class="form-floating">
-    <%= form.text_field :darkeningspeed, class: "form-control" %>
-    <%= form.label :darkeningspeed %>
-  </div>
-  <br>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
