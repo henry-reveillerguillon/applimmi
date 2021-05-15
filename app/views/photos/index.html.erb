@@ -1,4 +1,4 @@
-<h1 style="width:35vw; margin-left:1em; margin-top:1em;">Salut  <%= current_user.username %> 🖐</h1>
+<h1 style="width:35vw; margin-left:1em; margin-top:1em;">Salut  <%= current_user.username %> 👋</h1>
 <section class="py-5 text-center container-fluid">
   <div class="row py-lg-5 backimg">
     <div class="col-lg-6 col-md-8 mx-auto">
@@ -32,11 +32,10 @@
             <p class="card-text">#<%= photo.tags.name %></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <%= link_to 'View', photo, class: "btn btn-sm btn-outline-secondary" %>
-                <%= link_to 'Edit', edit_photo_path(photo), class: "btn btn-sm btn-outline-secondary" %>
-                <%# <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-outline-secondary" %>
+                <%= link_to 'View', photo, class: "btn btn-primary" %>
                 <% if current_user.present? && current_user == photo.user %>
-                  <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+                  <%= link_to 'Edit', edit_photo_path(photo), class: "btn btn-success" %>
+                  <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                 <% end %>
               </div>
               <small class="text-muted"><%= photo.place %></small>
@@ -47,6 +46,8 @@
       </div>
     </div>
   <% end %>
+  <div style="width:50vw; margin-right: auto; margin-left: auto; margin-bottom:2em; text-align:center">
+    <%= link_to 'Nouvelle photo', new_photo_path, class: "btn btn-light" %>
+  </div>
 </div>
 <br>
-<%= link_to 'New Photo', new_photo_path %>
