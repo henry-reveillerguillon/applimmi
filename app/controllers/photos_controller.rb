@@ -13,15 +13,19 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
+    @tags = Tag.all
   end
 
   # GET /photos/1/edit
   def edit
+  tags = Tag.all
   end
 
   # POST /photos or /photos.json
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = current_user
+
 
     respond_to do |format|
       if @photo.save
@@ -64,6 +68,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:url, :title, :description, :place, :situation, :user_id, :tags, :camera, :aperture, :focal, :darkeningspeed)
+      params.require(:photo).permit(:url, :title, :description, :place, :situation, :camera, :aperture, :focal, :darkeningspeed, tag_ids:[])
     end
 end

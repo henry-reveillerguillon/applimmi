@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+  resources :tags
   resources :photos
-  resources :room_messages
-  resources :rooms
   devise_for :users
   root "articles#index"
 
